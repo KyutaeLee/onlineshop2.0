@@ -16,7 +16,7 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_list_by_category', args=[self.slug])
-
+#각각의 프로덕트가 카테고리에 관계됨.
 class  Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='products')
     name = models.CharField(max_length=200, db_index=True)
